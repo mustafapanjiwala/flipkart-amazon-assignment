@@ -12,7 +12,7 @@ const ProductList = () => {
   const fetchProducts = async () => {
     try {
       const response = await axios
-        .get("http://localhost:3001/flipkart/get")
+        .get("https://flipkart-amazon-assignment.onrender.com/flipkart/get")
         .then((response) => {
           console.log(response.data);
           setProducts(response.data);
@@ -27,7 +27,9 @@ const ProductList = () => {
   // Delete a product
   const handleDelete = async (listingId) => {
     try {
-      await axios.delete(`http://localhost:3001/flipkart/unlist/${listingId}`);
+      await axios.delete(
+        `https://flipkart-amazon-assignment.onrender.com/flipkart/unlist/${listingId}`
+      );
       // Remove the product from the list after successful deletion
       setProducts(products.filter((product) => product._id !== listingId));
     } catch (error) {
